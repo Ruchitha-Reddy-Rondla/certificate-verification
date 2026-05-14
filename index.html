@@ -32,20 +32,30 @@ position:relative;
 body::before{
 content:'';
 position:absolute;
-width:200%;
-height:200%;
+width:100%;
+height:100%;
 background:
-linear-gradient(135deg,transparent 20%,rgba(255,255,255,0.04) 21%,transparent 22%),
-linear-gradient(155deg,transparent 35%,rgba(255,255,255,0.03) 36%,transparent 37%);
-animation:bgmove 10s linear infinite;
+linear-gradient(
+135deg,
+rgba(255,255,255,0.03) 25%,
+transparent 25%,
+transparent 50%,
+rgba(255,255,255,0.03) 50%,
+rgba(255,255,255,0.03) 75%,
+transparent 75%,
+transparent
+);
+background-size:300px 300px;
+animation:bgmove 18s linear infinite;
+opacity:0.25;
 }
 
 @keyframes bgmove{
 0%{
-transform:translateX(-5%);
+transform:translateY(0px);
 }
 100%{
-transform:translateX(5%);
+transform:translateY(-300px);
 }
 }
 
@@ -53,11 +63,11 @@ transform:translateX(5%);
 position:relative;
 z-index:2;
 width:100%;
-max-width:1050px;
+max-width:780px;
 background:#fdfdfd;
 border-radius:24px;
-padding:40px;
-box-shadow:0 10px 35px rgba(0,0,0,0.35);
+padding:34px 28px;
+box-shadow:0 10px 35px rgba(0,0,0,0.30);
 overflow:hidden;
 }
 
@@ -67,11 +77,11 @@ position:absolute;
 inset:0;
 background:
 repeating-radial-gradient(circle at center,
-#f1f1f1 0px,
-#f1f1f1 7px,
+#f3f3f3 0px,
+#f3f3f3 7px,
 white 8px,
 white 22px);
-opacity:0.55;
+opacity:0.45;
 }
 
 .content{
@@ -81,80 +91,82 @@ text-align:center;
 }
 
 .logo{
-width:260px;
-margin-bottom:20px;
+width:170px;
+margin-bottom:14px;
+margin-top:-5px;
 }
 
 .heading{
 display:inline-block;
-padding:14px 34px;
-font-size:32px;
-font-weight:700;
-color:#15447d;
-border:3px solid #86b5dd;
-border-radius:14px;
+padding:10px 28px;
+font-size:22px;
+font-weight:600;
+color:#1d4f8c;
+border:2px solid #8db5db;
+border-radius:12px;
 background:#eef7ff;
-margin-bottom:30px;
+margin-bottom:24px;
+letter-spacing:0.5px;
 }
 
 .verify{
 display:inline-flex;
 align-items:center;
-gap:12px;
-background:#e8f7e8;
-padding:10px 22px;
-border-radius:50px;
-font-size:18px;
+gap:10px;
+background:#e9f6e8;
+padding:8px 18px;
+border-radius:40px;
+font-size:15px;
 font-weight:600;
-color:#1f7a29;
-margin-bottom:28px;
+color:#278533;
+margin-bottom:24px;
 }
 
 .tick{
-width:28px;
-height:28px;
+width:24px;
+height:24px;
 border-radius:50%;
-background:#1f7a29;
+background:#278533;
 display:flex;
 justify-content:center;
 align-items:center;
 color:white;
-font-size:16px;
+font-size:14px;
 }
 
 .badges{
 display:flex;
 justify-content:center;
-gap:35px;
-margin-bottom:35px;
+gap:28px;
+margin-bottom:28px;
 flex-wrap:wrap;
 }
 
 .badges img{
-width:110px;
-height:110px;
+width:82px;
+height:82px;
 object-fit:contain;
 }
 
 .name{
-font-size:42px;
+font-size:30px;
 font-weight:700;
 color:#7b5716;
-margin-bottom:18px;
+margin-bottom:12px;
 }
 
 .domain{
-font-size:22px;
+font-size:17px;
 font-weight:500;
 color:#333;
-margin-bottom:25px;
+margin-bottom:18px;
 }
 
 .meta{
-font-size:18px;
-line-height:2;
+font-size:15px;
+line-height:1.9;
 color:#444;
-margin-bottom:40px;
+margin-bottom:28px;
 }
 
 .meta b{
@@ -162,11 +174,11 @@ color:#123d78;
 }
 
 .certificate-box{
-background:#0c4275;
-padding:16px;
-border-radius:20px;
-box-shadow:0 8px 20px rgba(0,0,0,0.25);
-margin-bottom:40px;
+background:#124d82;
+padding:12px;
+border-radius:18px;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+margin-bottom:30px;
 }
 
 .certificate-box img{
@@ -176,9 +188,9 @@ display:block;
 }
 
 .contact-box{
-background:#0f4d7f;
-padding:35px 20px;
-border-radius:22px;
+background:#135486;
+padding:28px 18px;
+border-radius:20px;
 position:relative;
 overflow:hidden;
 }
@@ -188,9 +200,9 @@ position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-font-size:140px;
+font-size:95px;
 font-weight:700;
-color:rgba(255,255,255,0.05);
+color:rgba(255,255,255,0.04);
 pointer-events:none;
 }
 
@@ -198,78 +210,79 @@ pointer-events:none;
 display:flex;
 align-items:center;
 justify-content:center;
-gap:14px;
-margin-bottom:22px;
-font-size:21px;
+gap:12px;
+margin-bottom:18px;
+font-size:16px;
 font-weight:500;
 color:#8fd3ff;
-word-break:break-all;
 position:relative;
 z-index:2;
+word-break:break-all;
 }
 
 .contact-item img{
-width:42px;
-height:42px;
+width:32px;
+height:32px;
 object-fit:contain;
 }
 
 .footer{
-margin-top:25px;
-font-size:22px;
+margin-top:18px;
+font-size:16px;
 color:white;
 position:relative;
 z-index:2;
+font-weight:400;
 }
 
 @media(max-width:768px){
 
 .container{
-padding:25px 16px;
+padding:24px 16px;
 }
 
 .logo{
-width:190px;
+width:140px;
 }
 
 .heading{
-font-size:22px;
-padding:10px 20px;
+font-size:18px;
+padding:9px 18px;
 }
 
 .name{
-font-size:28px;
+font-size:24px;
 }
 
 .domain{
-font-size:17px;
+font-size:15px;
 }
 
 .meta{
-font-size:15px;
+font-size:13px;
 }
 
 .badges img{
-width:80px;
-height:80px;
+width:65px;
+height:65px;
 }
 
 .contact-item{
-font-size:14px;
-padding:0 10px;
+font-size:13px;
+padding:0 8px;
 }
 
 .contact-item img{
-width:28px;
-height:28px;
+width:24px;
+height:24px;
 }
 
 .footer{
-font-size:15px;
+font-size:13px;
 }
 
 .watermark{
-font-size:70px;
+font-size:60px;
 }
 
 }
@@ -320,7 +333,7 @@ DOMAIN: FULL STACK WEB DEVELOPMENT
 
 <div class="certificate-box">
 
-<img src="certificate.jpg">
+<img src="verification-images/certificate.jpg">
 
 </div>
 
