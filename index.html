@@ -5,176 +5,268 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Certificate Verification</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+font-family:'Poppins',sans-serif;
 }
+
 body{
-background:#02133b;
-background-image: linear-gradient(135deg,#02133b,#0a2b72,#02133b);
 min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-padding:30px;
+padding:40px 20px;
+background:#041b49;
+overflow-x:hidden;
+position:relative;
 }
 
-.container{
-width:100%;
-max-width:1000px;
-background:white;
-border-radius:25px;
-padding:40px;
-box-shadow:0 0 30px rgba(0,0,0,0.4);
-position:relative;
-overflow:hidden;
+body::before{
+content:'';
+position:absolute;
+width:180%;
+height:180%;
+background:
+linear-gradient(115deg,transparent 20%,rgba(255,255,255,0.09) 21%,transparent 22%),
+linear-gradient(130deg,transparent 35%,rgba(255,255,255,0.07) 36%,transparent 37%),
+linear-gradient(145deg,transparent 50%,rgba(255,255,255,0.05) 51%,transparent 52%),
+linear-gradient(160deg,transparent 65%,rgba(255,255,255,0.05) 66%,transparent 67%);
+transform:rotate(-8deg);
+animation:move 14s linear infinite;
 }
-.container::before{
-content:"";
+
+@keyframes move{
+0%{
+transform:translateX(-5%) rotate(-8deg);
+}
+100%{
+transform:translateX(5%) rotate(-8deg);
+}
+}
+
+.wrapper{
+position:relative;
+width:100%;
+max-width:760px;
+background:white;
+border-radius:22px;
+padding:35px 28px 40px;
+box-shadow:0 10px 40px rgba(0,0,0,0.4);
+overflow:hidden;
+z-index:2;
+}
+
+.wrapper::before{
+content:'';
 position:absolute;
 inset:0;
-background:url('https://www.transparenttextures.com/patterns/wavy.png');
-opacity:0.15;
+background:
+radial-gradient(circle at top left,rgba(255,255,255,0.8),transparent 30%),
+repeating-radial-gradient(circle at center,#f3f3f3 0px,#f3f3f3 7px,#ffffff 8px,#ffffff 22px);
+opacity:0.55;
 }
 
 .content{
 position:relative;
-z-index:2;
+z-index:3;
 text-align:center;
 }
 
 .logo{
-width:220px;
-margin-bottom:30px;
+width:140px;
+margin-bottom:22px;
 }
-.title{
-font-size:55px;
-font-weight:bold;
-color:#004b8d;
-border:4px solid #004b8d;
+
+.heading{
+font-size:30px;
+font-weight:700;
+letter-spacing:1px;
+color:#16407b;
+border:3px solid #8db5db;
 display:inline-block;
-padding:15px 40px;
-border-radius:15px;
-margin-bottom:40px;
+padding:10px 34px;
+border-radius:12px;
+background:#eef7ff;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
 }
 
-.verify{
-font-size:28px;
-font-weight:bold;
-color:green;
-margin-bottom:20px;
-}
-.name{
-font-size:36px;
-font-weight:bold;
-margin-top:20px;
-color:#111;
+.approved{
+margin-top:24px;
+display:inline-flex;
+align-items:center;
+gap:10px;
+background:#eaf6e9;
+padding:8px 18px;
+border-radius:30px;
+font-size:16px;
+font-weight:600;
+color:#1d7a28;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
 }
 
-.details{
-font-size:22px;
-margin-top:15px;
-line-height:1.8;
-color:#333;
+.tick{
+width:24px;
+height:24px;
+border-radius:50%;
+background:#1d7a28;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:15px;
 }
 
 .badges{
+margin-top:28px;
 display:flex;
 justify-content:center;
-gap:40px;
-margin-top:40px;
+gap:26px;
 flex-wrap:wrap;
-}
-.badges img{
-width:130px;
-}
-
-.certificate-box{
-margin-top:50px;
-}
-
-.certificate-box img{
-width:100%;
-max-width:850px;
-border-radius:15px;
-box-shadow:0 0 15px rgba(0,0,0,0.3);
-}
-
-.id{
-margin-top:25px;
-font-size:20px;
-font-weight:bold;
-color:#004b8d;
-}
-@media(max-width:768px){
-
-.title{
-font-size:32px;
-padding:12px 20px;
-}
-
-.name{
-font-size:28px;
-}
-
-.details{
-font-size:18px;
 }
 
 .badges img{
 width:90px;
+height:90px;
+object-fit:contain;
+filter:drop-shadow(0 3px 8px rgba(0,0,0,0.15));
+}
+
+.name{
+margin-top:30px;
+font-size:28px;
+font-weight:700;
+color:#6b4b16;
+}
+
+.role{
+margin-top:12px;
+font-size:18px;
+line-height:1.8;
+color:#333;
+font-weight:500;
+}
+
+.meta{
+margin-top:20px;
+font-size:15px;
+color:#666;
+line-height:2;
+}
+
+.meta b{
+color:#0f356b;
+}
+
+.certificate{
+margin-top:35px;
+background:#0d3d71;
+padding:14px;
+border-radius:18px;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.certificate img{
+width:100%;
+border-radius:10px;
+display:block;
+}
+
+.verifyid{
+margin-top:24px;
+font-size:16px;
+font-weight:600;
+color:#123d78;
+}
+
+.footer{
+margin-top:18px;
+font-size:13px;
+color:#777;
+}
+
+@media(max-width:768px){
+
+.wrapper{
+padding:26px 18px 30px;
+}
+
+.heading{
+font-size:22px;
+padding:10px 20px;
+}
+
+.name{
+font-size:22px;
+}
+
+.role{
+font-size:16px;
+}
+
+.badges img{
+width:72px;
+height:72px;
 }
 
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="wrapper">
 
 <div class="content">
 
-<img class="logo" src="https://i.ibb.co/6N0L9wR/nxtsync-logo.png" alt="logo">
+<img class="logo" src="https://i.ibb.co/Wy5L0mD/nxtsync.png" alt="logo">
 
-<div class="title">
+<div class="heading">
 CERTIFICATE VERIFICATION
 </div>
 
-<div class="verify">
-✅ VERIFIED SUCCESSFULLY
+<div class="approved">
+<div class="tick">✓</div>
+APPROVED BY
 </div>
+
+<div class="badges">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/ISO_9001-2015.svg/800px-ISO_9001-2015.svg.png">
+
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/AICTE_logo.png/220px-AICTE_logo.png">
+
+</div>
+
 <div class="name">
-Kingsly Robbin J
+DEVARAKONDA ANIRUDH
 </div>
 
-<div class="details">
-Successfully completed the <b>Full Stack Web Development Internship</b><br>
-Conducted by <b>Nxtsync</b><br>
-Duration: 25/03/2025 to 25/03/2026
+<div class="role">
+DOMAIN: FULL STACK WEB DEVELOPMENT
 </div>
 
-<div class="id">
-Certificate ID: NX2025FS001
+<div class="meta">
+<b>ISSUED DATE:</b> 2025-03-01<br>
+<b>VALID STATUS:</b> VERIFIED SUCCESSFULLY
 </div>
 
-<div class="badges">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/ISO_9001-2015.svg/800px-ISO_9001-2015.svg.png">
-
-<img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/AICTE_logo.png/220px-AICTE_logo.png">
-</div>
-<div class="badges">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/ISO_9001-2015.svg/800px-ISO_9001-2015.svg.png">
-
-<img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/AICTE_logo.png/220px-AICTE_logo.png">
-</div>
-
-<div class="certificate-box">
+<div class="certificate">
 <img src="certificate.jpg" alt="certificate">
+</div>
+
+<div class="verifyid">
+Certificate ID : NX2025FS001
+</div>
+
+<div class="footer">
+Official Internship Verification Portal
 </div>
 
 </div>
